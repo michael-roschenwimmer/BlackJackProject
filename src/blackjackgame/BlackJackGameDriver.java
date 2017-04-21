@@ -2,8 +2,10 @@ package blackjackgame;
 
 public class BlackJackGameDriver {
 
-	public static void main(String[] args) {
-
+	public void startGame() {
+		BlackJackDealer dealerOne = new BlackJackDealer();
+		BlackJackPlayer playerOne = new BlackJackPlayer();
+		
 	}
 
 }
