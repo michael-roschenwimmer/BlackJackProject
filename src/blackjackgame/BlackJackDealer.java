@@ -1,4 +1,4 @@
-package blackjackproject;
+package blackjackgame;
 
 public class BlackJackDealer {
 
