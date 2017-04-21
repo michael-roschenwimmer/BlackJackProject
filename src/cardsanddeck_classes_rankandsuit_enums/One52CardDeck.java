@@ -5,8 +5,6 @@ import java.util.List;
 
 public class One52CardDeck {
 	
-	
-	
 	public void createNewDeck() {
 		List<Card> oneDeck = new ArrayList<>(52);
 		for (Suit s : Suit.values()) {

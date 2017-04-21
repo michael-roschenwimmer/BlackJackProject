@@ -2,7 +2,7 @@ package blackjackgame;
 
 public class BlackJackPlayer {
 	
-	private double money;
+	private double chips;
 	private String name;
 	
 

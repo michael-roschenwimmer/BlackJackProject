@@ -2,11 +2,11 @@ package blackjackgame;
 
 public class BlackJackHand {
 	
-	public void playerHandProcess(){  
+	public void playerHandShow(){  // 
 		
 	}
 
-	public void dealerHandProcess(){
+	public void dealerHandShow(){
 		
 	}
 	
