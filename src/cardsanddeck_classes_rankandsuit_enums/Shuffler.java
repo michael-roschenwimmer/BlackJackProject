@@ -1,25 +1,25 @@
 package cardsanddeck_classes_rankandsuit_enums;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Shuffler {
 	
 
-	public List<Card> shuffleOneDeck(List<Card> oneDeck) {
+	public ArrayList<Card> shuffleOneDeck(ArrayList<Card> oneDeck) {
 		Shuffler machineShuffler = new Shuffler();
 		machineShuffler.shuffleOneDeck(oneDeck);
 		System.out.println("\n**Dealer shuffled ALL of the cards**");
-		Collections.shuffle((List<Card>) oneDeck);
+		Collections.shuffle((ArrayList<Card>) oneDeck);
 		return oneDeck;
 		}
 	
 	
-	public void shuffleSixDecks (List<Card> SixDecks) {          // implement if I get everything else working
+	public void shuffleSixDecks (ArrayList<Card> SixDecks) {          // implement if I get everything else working
 		Shuffler machineShuffler = new Shuffler();
-		machineShuffler.shuffleOneDeck(SixDecks);
+		machineShuffler.shuffleSixDecks(SixDecks);
 		System.out.println("\n**Dealer shuffled ALL of the cards**");
-		Collections.shuffle((List<Card>) SixDecks);
+		Collections.shuffle((ArrayList<Card>) SixDecks);
 		}
 	
 }
