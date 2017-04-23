@@ -14,8 +14,17 @@ public class One52CardDeck {
 		}
 	}
 
-	public ArrayList<Card> getOneCardFromDeck() {
+	public Card getOneCardFromDeck() {
+		return oneDeck.remove(0);
+	}
+
+	public ArrayList<Card> getOneDeck() {
 		return oneDeck;
 	}
+
+	public void setOneDeck(ArrayList<Card> oneDeck) {
+		this.oneDeck = oneDeck;
+	}
+	
 	
 }

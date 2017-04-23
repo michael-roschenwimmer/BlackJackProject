@@ -7,8 +7,14 @@ import cardsanddeck_classes_rankandsuit_enums.Rank;
 
 public class BlackJackHand {
 	
-	private ArrayList<Card> cardsInHand;          // private ArrayList of Cards to keep track of player hand
+	private ArrayList<Card> cardsInHand = new ArrayList<Card>();          // private ArrayList of Cards to keep track of player hand
 	
+	public ArrayList<Card> getCardsInHand() {
+		return cardsInHand;
+	}
+	public void setCardsInHand(ArrayList<Card> cardsInHand) {
+		this.cardsInHand = cardsInHand;
+	}
 	public void addHitCard(Card hitCard){         // adds "hit" card to hand
 		cardsInHand.add(hitCard);
 	}

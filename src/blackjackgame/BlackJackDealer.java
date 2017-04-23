@@ -11,6 +11,7 @@ public class BlackJackDealer extends BlackJackPlayer {       // needed same meth
 	private String name;
 	private double houseChips;
 	Shuffler machineShuffler = new Shuffler();
+	
 //	BlackJackDealer robot = new BlackJackDealer();
 	
 	public void startAndDealWithOneDeck(ArrayList<Card> oneDeck){
@@ -61,5 +62,5 @@ public class BlackJackDealer extends BlackJackPlayer {       // needed same meth
 	public void setHouseChips(double houseChips) {
 		this.houseChips = houseChips;
 	}
-	
+
 }

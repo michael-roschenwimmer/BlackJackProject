@@ -10,12 +10,11 @@ public class BlackJackPlayer {      // Make Abstract so that dealer "player" can
 	private String name;	
 	private BlackJackHand hand = new BlackJackHand();      // instantiated BlackJackHand as a field
 	
-	public Card hitMe(List<Card> oneDeck){            // adds a card to the player's hand to attempt
+	public Card hitMe(Card c){            // adds a card to the player's hand to attempt
 													  // removes one card from the deck
-		int removeCard = oneDeck.size() - 1;		  // to improve it or BUST
-		Card hitCard = oneDeck.get(removeCard);
-		this.hand.addHitCard(hitCard);
-		return hitCard;
+		
+		this.hand.addHitCard(c);
+		return c;
 		
 	}
 	

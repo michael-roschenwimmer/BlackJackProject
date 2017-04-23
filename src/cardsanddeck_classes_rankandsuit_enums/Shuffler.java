@@ -10,7 +10,7 @@ public class Shuffler {
 		Shuffler machineShuffler = new Shuffler();
 		machineShuffler.shuffleOneDeck(oneDeck);
 		System.out.println("\n**Dealer shuffled ALL of the cards**");
-		Collections.shuffle((ArrayList<Card>) oneDeck);
+		Collections.shuffle(oneDeck);
 		return oneDeck;
 		}
 	
