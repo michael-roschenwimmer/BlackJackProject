@@ -4,13 +4,14 @@ import java.util.List;
 
 import cardsanddeck_classes_rankandsuit_enums.Card;
 
-public class BlackJackPlayer {
+public class BlackJackPlayer {      // Make Abstract so that dealer "player" can be child and BlackJackPlayer is parent class
 	
 	private int chips;          // every players needs their chips, including the dealer
 	private String name;	
 	private BlackJackHand hand = new BlackJackHand();      // instantiated BlackJackHand as a field
 	
 	public Card hitMe(List<Card> oneDeck){            // adds a card to the player's hand to attempt
+													  // removes one card from the deck
 		int removeCard = oneDeck.size() - 1;		  // to improve it or BUST
 		Card hitCard = oneDeck.get(removeCard);
 		this.hand.addHitCard(hitCard);

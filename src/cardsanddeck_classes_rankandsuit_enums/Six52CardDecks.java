@@ -6,7 +6,7 @@ import java.util.List;
 public class Six52CardDecks {
 	
 	
-	public void createNewDeck() {
+	public void createSix52CardDeck() {
 		List<Card> sixDecks = new ArrayList<>(312);
 
 		for (Suit suit : Suit.values()) {

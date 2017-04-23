@@ -5,7 +5,7 @@ import java.util.List;
 
 public class One52CardDeck {
 	
-	public void createNewDeck() {
+	public void createOne52CardDeck() {
 		List<Card> oneDeck = new ArrayList<>(52);
 		for (Suit suit : Suit.values()) {
 			for (Rank rank : Rank.values()) {

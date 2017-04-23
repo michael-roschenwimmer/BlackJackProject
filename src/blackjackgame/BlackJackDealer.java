@@ -5,7 +5,7 @@ import java.util.List;
 import cardsanddeck_classes_rankandsuit_enums.Card;
 import cardsanddeck_classes_rankandsuit_enums.Shuffler;
 
-public class BlackJackDealer {
+public class BlackJackDealer extends BlackJackPlayer {       // needed same methods as BlackJackPlayer
 	
 	private String name;
 	private double houseChips;
@@ -13,7 +13,7 @@ public class BlackJackDealer {
 	BlackJackDealer robot = new BlackJackDealer();
 	
 	public void startAndDealWithOneDeck(List<Card> oneDeck){
-		System.out.println(robot.toString() + "Are you feelin lucky, punk?");
+		System.out.println(robot.toString() + "Are you feelin lucky?");
 		robot.machineShuffler.shuffleOneDeck(oneDeck);
 		robot.dealOneDeck(oneDeck);
 		System.out.println(robot.toString() + "Read'em and weep!");
