@@ -23,6 +23,7 @@ public class BlackJackPlayer {
 	}
 
 
+	
 
 	public int getChips() {							// set player amount of casino chips
 		return chips;

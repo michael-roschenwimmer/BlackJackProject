@@ -20,7 +20,7 @@ public class BlackJackHand {
 		
 		int decreasedAceValue = 0;
 		
-		while (sum > 21 && handHasAce() && howManyAcesInHand() != decreasedAceValue){ 
+		while (sum > 21 && handHasAce() && howManyAcesInHand() != decreasedAceValue){  
 			sum -= 10;
 			decreasedAceValue++;
 		}
