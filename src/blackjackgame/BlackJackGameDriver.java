@@ -32,6 +32,7 @@ public class BlackJackGameDriver {
 		one52CardDeck.setOneDeck(shuffleOneDeckOnly.shuffleOneDeck(one52CardDeck.getOneDeck()));
 		System.out.println("Dealer is dealing... Press Q to quit at any time...");
 		dealerDeals();
+		displayHands();
 
 		if (dealerOne.playerHasBlackJack()) {
 			System.out.println(dealerOne.getName() + " has BLACKJACK!");
@@ -57,7 +58,7 @@ public class BlackJackGameDriver {
 			
 		}
 		playerInput();
-		System.out.println("do you want to play again");
+		System.out.println("Do you want to play again?");
 		String yn = kb.nextLine();
 		if(yn.equals("y")){
 			startBlackJackGame();
@@ -84,6 +85,7 @@ public class BlackJackGameDriver {
 
 	public void displayHands() {
 		System.out.println("Player's hand is: " + playerOne.getHand().getHandValue());
+		System.out.println("Dealer's hand is:  " + dealerOne.getHand().getHandValue());
 
 	}
 
@@ -109,16 +111,22 @@ public class BlackJackGameDriver {
 					dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
 				}
 				//create method to check who wins.... pass in dealerTotal and playerTotal
+				playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
 				keepPlaying = false;
 
 			}
 			if (choice.equals("Q") || choice.equals("q")) {
 				System.out.println("Thanks for giving us your money! Come back again now, y'hear!?");
 				kb.close();
-				keepPlaying = false;
+				System.exit(0);
+//				keepPlaying = false;
 			}
 		}
 
+	}
+	public void checkForWinner(int playerTotal, int dealerTotal){
+		
+		
 	}
 
 	public int calculateTotal(List<Card> hand) {
