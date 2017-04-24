@@ -26,7 +26,7 @@ public class BlackJackGameDriver {
 	public void startBlackJackGame() {
 		one52CardDeck.createOne52CardDeck();
 		one52CardDeck.setOneDeck(shuffleOneDeckOnly.shuffleOneDeck(one52CardDeck.getOneDeck()));
-		System.out.println("Dealer is dealing... Type 'Q' and enter to quit at any time...");
+		System.out.println("Dealer is dealing... Type any keys other than 'H', 'h', 'S', 's' to quit the game at any time...");
 		System.out.println();
 		dealerDeals();
 		displayHands();
@@ -63,6 +63,9 @@ public class BlackJackGameDriver {
 
 			}
 
+		}
+		if (calculateTotal(playerOne.getHand().getCardsInHand()) == calculateTotal(dealerOne.getHand().getCardsInHand())){
+			System.out.println("PUSH!");
 		}
 
 		if (calculateTotal(playerOne.getHand().getCardsInHand()) == 21) {
@@ -131,8 +134,8 @@ public class BlackJackGameDriver {
 
 				if (playerTotal > 21) {
 					System.out.println();
-					displayHands();
-					System.out.println(playerOne + " has lost!");
+//					displayHands();
+					System.out.println(playerOne.getName() + " has lost!");
 					keepPlaying = false;
 //					System.exit(0);
 				}
@@ -164,7 +167,14 @@ public class BlackJackGameDriver {
 	public void dealersTurnToFindOutWinner(int playerTotal, int dealerTotal) {
 		System.out.println(dealerOne.getName() + " is now hitting to try to beat " + playerOne.getName());
 
-		if (playerTotal < dealerTotal) {
+		if (playerTotal > dealerTotal) {
+			System.out.println(playerOne.getName() + " has WON!");
+			displayHands();
+			System.out.println();
+			// System.out.println("Going to the next hand now!");
+			// startBlackJackGame();
+		}
+		if ((playerTotal < dealerTotal) && (dealerTotal < 22)) {
 			System.out.println(playerOne.getName() + " has lost the hand");
 			displayHands();
 			System.out.println();
@@ -185,13 +195,6 @@ public class BlackJackGameDriver {
 			// startBlackJackGame();
 		}
 
-		if (playerTotal > dealerTotal) {
-			System.out.println(playerOne.getName() + " has WON!");
-			displayHands();
-			System.out.println();
-//			System.out.println("Going to the next hand now!");
-			// startBlackJackGame();
-		}
 	}
 
 	public int calculateTotal(List<Card> hand) {
