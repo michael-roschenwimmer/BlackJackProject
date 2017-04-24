@@ -5,7 +5,7 @@ import cardsanddeck_classes_rankandsuit_enums.Card;
 public class BlackJackPlayer {      // Make Abstract so that dealer "player" can be child and BlackJackPlayer is parent class
 	
 	private int chips;          // every players needs their chips, including the dealer
-	private String name = "Gus the player";	
+	private String name = "The Player";	
 	private BlackJackHand hand = new BlackJackHand();      // instantiated BlackJackHand as a field
 	
 	
