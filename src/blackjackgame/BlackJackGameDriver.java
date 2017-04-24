@@ -23,13 +23,18 @@ public class BlackJackGameDriver {
 	// need to add more methods later
 
 	public void startBlackJackGame() {
-		dealerOne.setName("Jimmy the dealer");
-		playerOne.setName("Gus the player");
 		one52CardDeck.createOne52CardDeck();
 		one52CardDeck.setOneDeck(shuffleOneDeckOnly.shuffleOneDeck(one52CardDeck.getOneDeck()));
 		System.out.println("Dealer is dealing... Type 'Q' and enter to quit at any time...");
+		System.out.println();
 		dealerDeals();
 		displayHands();
+
+		if (!playerOne.playerHasBlackJack() && !dealerOne.playerHasBlackJack()) {
+			System.out.println(playerOne.getName() + " would you like to hit or stay?");
+			System.out.println("Please type 'H' for HIT or 'S' for STAY.");
+			playerInput();
+		}
 
 		if (dealerOne.playerHasBlackJack()) {
 			System.out.println(dealerOne.getName() + " has BLACKJACK!");
@@ -44,18 +49,17 @@ public class BlackJackGameDriver {
 
 			}
 
-			if (playerOne.playerHasBlackJack()) {
-				System.out.println(playerOne.getName() + " has BLACKJACK!");
-				if (dealerOne.getHand().getHandValue() < 21) {
-					System.out.println("You win this hand " + playerOne.getName() + "!");
-					// insert method to add to player's chips
-					dealerDeals(); // to loop to the next hand
-				}
-			}
-			if (!playerOne.playerHasBlackJack() && !dealerOne.playerHasBlackJack()) {
-				playerInput();
+		}
+
+		if (playerOne.playerHasBlackJack()) {
+			System.out.println(playerOne.getName() + " has BLACKJACK!");
+			if (dealerOne.getHand().getHandValue() < 21) {
+				System.out.println("You win this hand " + playerOne.getName() + "!");
+				// insert method to add to player's chips
+				dealerDeals(); // to loop to the next hand
 			}
 		}
+
 		playerInput();
 		System.out.println("Do you want to play again?");
 		String yesOrNo = kb.nextLine();
@@ -70,15 +74,19 @@ public class BlackJackGameDriver {
 
 		dealtCard = playerOne.hitMe(one52CardDeck.getOneCardFromDeck());
 		System.out.println(playerOne.getName() + " draws: " + dealtCard);
+		System.out.println();
 
 		dealtCard = dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
 		System.out.println(dealerOne.getName() + " draws: " + dealtCard);
+		System.out.println();
 
 		dealtCard = playerOne.hitMe(one52CardDeck.getOneCardFromDeck());
 		System.out.println(playerOne.getName() + " draws: " + dealtCard);
+		System.out.println();
 
 		dealtCard = dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
 		System.out.println(dealerOne.getName() + " draws their face-down card.");
+		System.out.println();
 
 	}
 
@@ -92,44 +100,46 @@ public class BlackJackGameDriver {
 		String choice = kb.nextLine();
 		int playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
 		boolean keepPlaying = true;
-		System.out.println(playerOne.getName() + " Would you like to hit or stay?");
+		System.out.println(playerOne.getName() + " would you like to hit or stay?");
 		System.out.println("Please type 'H' for HIT or 'S' for STAY.");
-		while (keepPlaying) {
-			if (choice.equals("H") || choice.equals("h")) {
-				System.out.println("So, you're feeling lucky, eh?");
-				// Player Hits
-				playerOne.hitMe(one52CardDeck.getOneCardFromDeck());
-				playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
-			}
-			if (choice.equals("S") || choice.equals("s")) {
-				// Player Stays
-				int dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
-				while (dealerTotal < 17) {
-					dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
-					dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
-				}
-				// create method to check who wins.... pass in dealerTotal and
-				// playerTotal
-				playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
-				dealersTurnToFindOutWinner(playerTotal, dealerTotal);
-				keepPlaying = false;
-
-			}
-			if (choice.equals("Q") || choice.equals("q")) {
-				System.out.println("Thanks for giving us your money! Come back again now, y'hear!?");
-				kb.close();
-				System.exit(0);
-				// keepPlaying = false;
-			}
+		// while (keepPlaying) {
+		if (choice.equals("H") || choice.equals("h")) {
+			System.out.println("So, you're feeling lucky, eh?");
+			// Player Hits
+			playerOne.hitMe(one52CardDeck.getOneCardFromDeck());
+			playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
+			displayHands();
 		}
+		if (choice.equals("S") || choice.equals("s")) {
+			// Player Stays
+			int dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
+			while (dealerTotal < 17) {
+				dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
+				dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
+			}
+			// create method to check who wins.... pass in dealerTotal and
+			// playerTotal
+			playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
+			dealersTurnToFindOutWinner(playerTotal, dealerTotal);
+			keepPlaying = false;
 
+		}
+		if (choice.equals("Q") || choice.equals("q")) {
+			System.out.println("Thanks for giving us your money! Come back again now, y'hear!?");
+			kb.close();
+			System.exit(0);
+			// keepPlaying = false;
+		}
 	}
+
+	// }
 
 	public void dealersTurnToFindOutWinner(int playerTotal, int dealerTotal) {
 		System.out.println(dealerOne.getName() + " is now hitting to try to beat " + playerOne);
 
 		if (playerOne.getHand().getHandValue() < dealerOne.getHand().getHandValue()) {
 			System.out.println(playerOne + " has lost the hand");
+			displayHands();
 		}
 		while (dealerOne.getHand().getHandValue() < 16) {
 			Card hitCard = dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
@@ -139,10 +149,12 @@ public class BlackJackGameDriver {
 
 			if (dealerOne.getHand().getHandValue() > 21) {
 				System.out.println(dealerOne + " has BUSTED!!!");
+				displayHands();
 			}
-			
+
 			if (playerOne.getHand().getHandValue() < dealerOne.getHand().getHandValue()) {
 				System.out.println(playerOne + " has LOST!!!");
+				displayHands();
 			}
 		}
 

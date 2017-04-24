@@ -8,7 +8,7 @@ import cardsanddeck_classes_rankandsuit_enums.Shuffler;
 
 public class BlackJackDealer extends BlackJackPlayer {       // needed same methods as BlackJackPlayer
 	
-	private String name;
+	private String name = "Jimmy the dealer";	
 	private double houseChips;
 	Shuffler machineShuffler = new Shuffler();
 	
