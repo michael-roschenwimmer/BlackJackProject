@@ -9,3 +9,9 @@ to hit, stay, or quit based upon the hand they are dealt as soon as they start t
 The game itself checks for multiple conditions such as if the dealer or the player get
 BlackJack, BUST, or PUSH. The game does not have options for using casino chips to bet
 with and does not have the option to split or double down either.
+
+Once the user is prompted for input they can type anything other the H, h, S, and s
+in order to quit the game.
+
+
+I plan on updating this game as I have more time to reach the stretch goals.
