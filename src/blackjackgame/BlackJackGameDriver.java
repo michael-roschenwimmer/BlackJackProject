@@ -97,12 +97,12 @@ public class BlackJackGameDriver {
 					playerOne.getName() + " Would you like to hit or stay? Please type H for HIT or S for STAY.");
 			if (choice.equals("H") || choice.equals("h")) {
 				System.out.println("So, you're feeling lucky, eh?");
-				// Insert HIT method here
+				// Player Hits
 				playerOne.hitMe(one52CardDeck.getOneCardFromDeck());
 				 playerTotal = calculateTotal(playerOne.getHand().getCardsInHand());
 			}
 			if (choice.equals("S") || choice.equals("s")) {
-				// Insert STAY method here
+				// Player Stays
 				int dealerTotal = calculateTotal(dealerOne.getHand().getCardsInHand());
 				while (dealerTotal < 17) {
 					dealerOne.hitMe(one52CardDeck.getOneCardFromDeck());
@@ -128,7 +128,7 @@ public class BlackJackGameDriver {
 		}
 		//total = 31
 		for (Card card : hand) {
-			if(total>21 && card.getRank().equals(Rank.ACE)){
+			if(total > 21 && card.getRank().equals(Rank.ACE)){
 				total = total -10;
 			}
 		}

@@ -1,7 +1,5 @@
 package blackjackgame;
 
-import java.util.List;
-
 import cardsanddeck_classes_rankandsuit_enums.Card;
 
 public class BlackJackPlayer {      // Make Abstract so that dealer "player" can be child and BlackJackPlayer is parent class

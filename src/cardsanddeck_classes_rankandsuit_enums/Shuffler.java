@@ -7,8 +7,7 @@ public class Shuffler {
 	
 
 	public ArrayList<Card> shuffleOneDeck(ArrayList<Card> oneDeck) {
-		Shuffler machineShuffler = new Shuffler();
-		machineShuffler.shuffleOneDeck(oneDeck);
+		shuffleOneDeck(oneDeck);
 		System.out.println("\n**Dealer shuffled ALL of the cards**");
 		Collections.shuffle(oneDeck);
 		return oneDeck;
@@ -16,7 +15,7 @@ public class Shuffler {
 	
 	
 	public void shuffleSixDecks (ArrayList<Card> SixDecks) {          // implement if I get everything else working
-		Shuffler machineShuffler = new Shuffler();
+		Shuffler machineShuffler = new Shuffler();					// change later to reflect changes in one52CardDeck
 		machineShuffler.shuffleSixDecks(SixDecks);
 		System.out.println("\n**Dealer shuffled ALL of the cards**");
 		Collections.shuffle((ArrayList<Card>) SixDecks);
