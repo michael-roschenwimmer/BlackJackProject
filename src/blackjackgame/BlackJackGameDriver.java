@@ -51,12 +51,12 @@ public class BlackJackGameDriver {
 			if (playerOne.playerHasBlackJack()) {
 				System.out.println(dealerOne.getName() + " We both have BLACKJACK! Let's get to the next hand.");
 				System.out.println();
-				System.out.println("Going to the next hand now!");
+//				System.out.println("Going to the next hand now!");
 				// startBlackJackGame(); // to loop to the next hand --- PUSH
 			} else if (playerOne.getHand().getHandValue() < 21) {
 				System.out.println(dealerOne.getName() + " Sorry, you lose this hand " + playerOne.getName());
 				System.out.println();
-				System.out.println("Going to the next hand now!");
+//				System.out.println("Going to the next hand now!");
 				// startBlackJackGame(); // to loop to the next hand -- insert
 				// method to
 				// take player's chip that they bet
@@ -191,7 +191,7 @@ public class BlackJackGameDriver {
 			System.out.println(dealerOne.getName() + " has BUSTED!!!");
 			displayHands();
 			System.out.println();
-			System.out.println("Going to the next hand now!");
+//			System.out.println("Going to the next hand now!");
 			// startBlackJackGame();
 		}
 
